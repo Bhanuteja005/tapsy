@@ -8,6 +8,14 @@ const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
+app.use(cors(
+  {
+      origin: ["glomera.vercel.app"],
+      methods: ["POST", "GET"],
+      credentials: true
+  }
+));
+
 app.use(express.json());
 app.use(cors());
 

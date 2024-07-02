@@ -15,7 +15,7 @@
     "postbuild": "mv frontend/build backend/public" 
   },
   "keywords": ["MERN", "Tasks", "Task manager", "Full stack application"],
-  "author": "Aayush",
+  "author": "Bhanu",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.1.0"

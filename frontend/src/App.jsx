@@ -1,24 +1,39 @@
-import { useEffect } from "react";
+import axios from 'axios'; // Import axios
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Task from "./pages/Task";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import { saveProfile } from "./redux/actions/authActions";
 import NotFound from "./pages/NotFound";
+import Signup from "./pages/Signup";
+import Task from "./pages/Task";
+import { saveProfile } from "./redux/actions/authActions";
 
 function App() {
-
   const authState = useSelector(state => state.authReducer);
   const dispatch = useDispatch();
+
+  // State for form inputs
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Set axios defaults
+  axios.defaults.withCredentials = true;
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('glomera-backend.vercel.app', { name, email, password })
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
     dispatch(saveProfile(token));
   }, [authState.isLoggedIn, dispatch]);
-
 
   return (
     <>
