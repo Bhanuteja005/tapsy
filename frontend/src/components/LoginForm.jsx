@@ -17,7 +17,7 @@ const LoginForm = ({ redirectUrl }) => {
       return;
     }
     axios.defaults.withCredentials = true;
-    axios.post('glomera-backend.vercel.app/api/login', {
+    axios.post('https://glomera-backend.vercel.app/api/login', {
       email: formData.email,
       password: formData.password
     })

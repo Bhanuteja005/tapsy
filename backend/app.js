@@ -10,7 +10,7 @@ const profileRoutes = require("./routes/profileRoutes");
 
 app.use(cors(
   {
-      origin: ["glomera.vercel.app"],
+      origin: ["https://glomera.vercel.app"],
       methods: ["POST", "GET"],
       credentials: true
   }
