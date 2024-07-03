@@ -30,21 +30,12 @@ const SignupForm = () => {
       setFormErrors(errors.reduce((total, ob) => ({ ...total, [ob.field]: ob.err }), {}));
       return;
     }
-  
-    const config = {
-      url: "https://glomera-backend.vercel.app/api/signup", 
-      method: "post",
-      data: {
-        email: formData.email,
-        password: formData.password,
-      },
-      withCredentials: true 
-    };
-      fetchData(config).then(() => {
+
+    const config = { url: "/auth/signup", method: "post", data: formData };
+    fetchData(config).then(() => {
       navigate("/login");
-    }).catch(err => {
-      console.log(err);
     });
+
   }
 
   const fieldError = (field) => (
@@ -56,7 +47,7 @@ const SignupForm = () => {
 
   return (
     <>
-      <form className='m-auto my-16 max-w-[500px] p-8 bg-white border-2 shadow-md rounded-md' onSubmit={handleSubmit}>
+      <form className='m-auto my-16 max-w-[500px] p-8 bg-white border-2 shadow-md rounded-md'>
         {loading ? (
           <Loader />
         ) : (
