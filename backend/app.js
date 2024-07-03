@@ -8,16 +8,14 @@ const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
-app.use(cors(
-  {
-      origin: ["https://glomera.vercel.app"],
-      methods: ["POST", "GET"],
-      credentials: true
-  }
-));
+
 
 app.use(express.json());
 app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 const mongoUrl = process.env.MONGODB_URL;
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
