@@ -12,12 +12,20 @@
     "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
     "start": "cd backend && node app.js",
     "build-frontend": "npm install --prefix frontend && npm run build --prefix frontend",
-    "postbuild": "mv frontend/build backend/public" 
+    "postbuild": "mv frontend/build backend/public"
   },
-  "keywords": ["MERN", "Tasks", "Task manager", "Full stack application"],
+  "keywords": [
+    "MERN",
+    "Tasks",
+    "Task manager",
+    "Full stack application"
+  ],
   "author": "Bhanu",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.1.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
   }
 }
