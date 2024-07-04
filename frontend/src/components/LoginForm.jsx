@@ -42,7 +42,7 @@ const LoginForm = ({ redirectUrl }) => {
       setFormErrors(errors.reduce((total, ob) => ({ ...total, [ob.field]: ob.err }), {}));
       return;
     }
-    dispatch(postLoginData(formData.email, formData.password));
+    dispatch(postLoginData("https://tapsy-1.onrender.com/login", formData.email, formData.password));
   }
 
 
